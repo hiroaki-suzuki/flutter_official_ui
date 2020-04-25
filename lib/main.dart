@@ -1,27 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class MyAppBar extends StatelessWidget {
-  MyAppBar({this.title});
+void main() {
+  runApp(MaterialApp(
+    title: 'Flutter Tutorial',
+    home: TutorialHome(),
+  ));
+}
 
-  final Widget title;
-
+class TutorialHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 106.0,
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      decoration: BoxDecoration(color: Colors.blue[500]),
-      child: Row(
-        children: <Widget>[
-          IconButton(
-            icon: Icon(Icons.menu),
-            tooltip: 'Navigation menu',
-            onPressed: null,
-          ),
-          Expanded(
-            child: title,
-          ),
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          tooltip: 'Navigation menu',
+          onPressed: null,
+        ),
+        title: Text('Example title'),
+        actions: <Widget>[
           IconButton(
             icon: Icon(Icons.search),
             tooltip: 'Search',
@@ -29,36 +27,14 @@ class MyAppBar extends StatelessWidget {
           )
         ],
       ),
-    );
-  }
-}
-
-class MyScaffold extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      child: Column(
-        children: <Widget>[
-          MyAppBar(
-            title: Text(
-              'Example title',
-              style: Theme.of(context).primaryTextTheme.title,
-            ),
-          ),
-          Expanded(
-            child: Center(
-              child: Text('Hello, world!'),
-            ),
-          )
-        ],
+      body: Center(
+        child: Text('Hellow, world!'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Add',
+        child: Icon(Icons.add),
+        onPressed: null,
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    title: 'My app',
-    home: MyScaffold(),
-  ));
 }
