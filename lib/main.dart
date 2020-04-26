@@ -27,8 +27,11 @@ class TutorialHome extends StatelessWidget {
           )
         ],
       ),
-      body: Center(
-        child: Text('Hellow, world!'),
+      body: Column(
+        children: <Widget>[
+          Text('Hellow, world!'),
+          MyButton(),
+        ],
       ),
       floatingActionButton: FloatingActionButton(
         tooltip: 'Add',
