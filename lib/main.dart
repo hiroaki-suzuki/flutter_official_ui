@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -31,6 +30,7 @@ class TutorialHome extends StatelessWidget {
         children: <Widget>[
           Text('Hellow, world!'),
           MyButton(),
+          Counter(),
         ],
       ),
       floatingActionButton: FloatingActionButton(
@@ -60,6 +60,34 @@ class MyButton extends StatelessWidget {
           child: Text('Engage'),
         ),
       ),
+    );
+  }
+}
+
+class Counter extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _CounterState();
+}
+
+class _CounterState extends State<Counter> {
+  int _counter = 0;
+
+  void _increment() {
+    setState(() {
+      _counter++;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: <Widget>[
+        RaisedButton(
+          onPressed: _increment,
+          child: Text('Increment'),
+        ),
+        Text('Count: $_counter'),
+      ],
     );
   }
 }
